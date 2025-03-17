@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : KEERTHIVASAN S</H3>
+<H3>ENTER YOUR REGISTER NO : 212223220046</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : 17 / 03 / 2025</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,14 +37,66 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
 
+Cell 1 :
+```
+import pandas as pd
+import io
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+```
+
+Cell 2 :
+```
+d=pd.read_csv("Churn_Modelling.csv")
+print(d.isnull().sum())
+```
+
+Cell 3 :
+```
+print(d.duplicated().sum())
+```
+
+Cell 4 :
+```
+plt.figure(figsize=(6,4))
+sns.scatterplot(x='Age', y='Exited', data=d)
+plt.title('Scatter plot of Age vs. Exited')
+plt.show()
+```
+
+Cell 5 :
+```
+scaler = MinMaxScaler()
+columns = ['CreditScore', 'Age', 'Tenure', 'Balance', 'NumOfProducts', 'EstimatedSalary']
+d[columns] = scaler.fit_transform(d[columns])
+```
+
+Cell 6 :
+```
+print("NORMALIZED DATASET\n",d)
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
 
+Output 1 :
+
+![Screenshot 2025-03-10 220021](https://github.com/user-attachments/assets/b234ac51-d822-430c-b888-b660c253bec0)
+
+Output 2 :
+
+![Screenshot 2025-03-10 220029](https://github.com/user-attachments/assets/3fe983e7-68ca-4f1a-b5d2-80a4ba4821dd)
+
+Output 3 :
+
+![Screenshot 2025-03-10 220036](https://github.com/user-attachments/assets/f2e9603b-7011-4aca-be53-8c45ea722597)
+
+Output 4 :
+
+![Screenshot 2025-03-10 220137](https://github.com/user-attachments/assets/24760874-b7ba-4f50-9a1c-dfbcf179b660)
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
-
-
